@@ -50,7 +50,7 @@ const LeftPanel: React.FC = () => {
         </div>
         <div className="countdown-timer">
           {!started ? (
-            <button className="start-button" onClick={handleStart}>Start</button>
+            <button className="start-button" onClick={handleStart}>Start the clock!</button>
           ) : (
             timer > 0 ? `${timer}s` : '😰'
           )}

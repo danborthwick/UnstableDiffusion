@@ -119,6 +119,15 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
     return wrongGuessMessages[Math.floor(Math.random() * wrongGuessMessages.length)];
   };
 
+  function formatPrompt(raw: string = '') {
+    const [head, ...tail] = raw.split('--');
+    return <>
+    <span>{head}</span>
+    <span><pre>{tail.join(' ')}</pre></span>
+    </>
+
+  }
+
   return (
       <div className="panel right-panel">
         {showAnimation ? (
@@ -133,7 +142,7 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
             
             <div className="animation-display">
               <div className="animation-prompt">
-                {animationPrompts[currentAnimationIndex]}
+                {formatPrompt(animationPrompts[currentAnimationIndex])}
               </div>
               <img
                 src={animationImages[currentAnimationIndex]}
@@ -195,8 +204,9 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
           // Main Game View
           <div className="game-container">
             <div className="game-header-right">
-              <h2>🤖 AI Generated Image</h2>
-              <p>This image was created by AI based on one of the 4 images on the left</p>
+              <h2>Unstable Diffusion</h2>
+              <p>Image after ten reverse prompt engineering cycles.</p>
+                <p> Which image, A, B, C or D was the original?</p>
             </div>
             
             <div className="ai-image-container">
@@ -206,7 +216,6 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
                 className="ai-generated-image"
                 onClick={handleAIImageClick}
               />
-              <div className="click-hint">💡 Click me for a hint!</div>
             </div>
 
             <div className="game-stats">
