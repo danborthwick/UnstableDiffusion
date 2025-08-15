@@ -15,16 +15,18 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
 
   // Animation sequence images (AI Chinese whisper progression)
   const animationImages = [
-    '/data/intermediate1-1.webp',
-    '/data/intermediate1-2.webp',
-    '/data/intermediate1-3.webp',
-    '/data/intermediate1-4.webp',
-    '/data/intermediate1-5.webp',
-    '/data/intermediate1-6.webp',
-    '/data/intermediate1-7.webp',
-    '/data/intermediate1-8.webp',
+    '/data/intermediate1-10.webp',
     '/data/intermediate1-9.webp',
-    '/data/intermediate1-10.webp'
+    '/data/intermediate1-8.webp',
+    '/data/intermediate1-7.webp',
+    '/data/intermediate1-6.webp',
+    '/data/intermediate1-5.webp',
+    '/data/intermediate1-4.webp',
+    '/data/intermediate1-3.webp',
+    '/data/intermediate1-2.webp',
+        '/data/intermediate1-1.webp',
+        '/data/option2.webp'
+
   ];
 
   // Fun wrong guess messages

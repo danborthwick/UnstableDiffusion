@@ -36,15 +36,15 @@ const LeftPanel: React.FC = () => {
             <div className="image-label">A</div>
           </div>
           <div className="image-grid-item">
-            <img src="/data/option1.webp" alt="Grid 2" onClick={() => gameLogic('B')} style={{cursor: 'pointer'}} />
+            <img src="/data/option2.webp" alt="Grid 2" onClick={() => gameLogic('B')} style={{cursor: 'pointer'}} />
             <div className="image-label">B</div>
           </div>
           <div className="image-grid-item">
-            <img src="/data/option1.webp" alt="Grid 3" onClick={() => gameLogic('C')} style={{cursor: 'pointer'}} />
+            <img src="/data/option3.webp" alt="Grid 3" onClick={() => gameLogic('C')} style={{cursor: 'pointer'}} />
             <div className="image-label">C</div>
           </div>
           <div className="image-grid-item">
-            <img src="/data/option1.webp" alt="Grid 4" onClick={() => gameLogic('D')} style={{cursor: 'pointer'}} />
+            <img src="/data/option4.webp" alt="Grid 4" onClick={() => gameLogic('D')} style={{cursor: 'pointer'}} />
             <div className="image-label">D</div>
           </div>
         </div>
