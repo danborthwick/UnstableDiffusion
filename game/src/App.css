@@ -1,5 +1,27 @@
-.App {
-  text-align: center;
+
+/* Fullscreen layout with two panels */
+.fullscreen-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.left-panel {
+  background: #222c3c;
+  color: #fff;
+}
+
+.right-panel {
+  background: #f5f5f5;
+  color: #222;
 }
 
 .App-logo {
@@ -26,6 +48,38 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* Full height layout split left/right */
+.full-height-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.panel {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-panel {
+  background: #6a5acd;
+  color: #fff;
+}
+
+.right-panel {
+  background: #20b2aa;
+  color: #fff;
+}
+
+.panel-content {
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
