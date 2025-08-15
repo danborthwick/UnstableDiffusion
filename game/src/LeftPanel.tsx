@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
+import { AnswerComponentRef } from './RightPanel';
 import './App.css';
 import './LeftPanel.css';
 
 const gameLogic = (label: string) => {
-  // TODO: Implement game logic here
-  console.log(`Image ${label} clicked!`);
+  if (AnswerComponentRef.current) {
+    AnswerComponentRef.current.startAnim();
+  }
 };
 
 const LeftPanel: React.FC = () => {
@@ -40,7 +42,9 @@ const LeftPanel: React.FC = () => {
             <div className="image-label">D</div>
           </div>
         </div>
-        <div className="countdown-timer">{timer}s</div>
+        <div className="countdown-timer">
+          {timer > 0 ? `${timer}s` : '😰'}
+        </div>
       </div>
     </div>
   );

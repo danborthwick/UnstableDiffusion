@@ -1,15 +1,13 @@
 
 import './App.css';
 import LeftPanel from './LeftPanel';
+import RightPanel from './RightPanel';
 
 function App() {
   return (
     <div className="fullscreen-layout">
   <LeftPanel />
-      <div className="panel right-panel">
-        {/* Right panel content */}
-        <h2>Right Panel</h2>
-      </div>
+  <RightPanel />
     </div>
   );
 }
