@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import './ImageAnimation.css';
 
 
-const ImageAnimation: React.FC = () => {
+export interface ImageAnimationRef {
+  handleImageClick: (answer: string) => void;
+}
+
+const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
   const [showAnimation, setShowAnimation] = useState(false);
@@ -39,9 +43,7 @@ const ImageAnimation: React.FC = () => {
 
   const handleImageClick = (answer: string) => {
     if (gameState === 'animating') return; // Prevent clicking during animation
-    
     if (answer === "B") {
-      // Correct guess! Start animation
       setGameState('correct');
       setTimeout(() => {
         setGameState('animating');
@@ -50,7 +52,6 @@ const ImageAnimation: React.FC = () => {
         setCurrentAnimationIndex(0);
       }, 1500);
     } else {
-      // Wrong guess! Show fun message
       setGameState('wrong');
       setWrongGuessCount(prev => prev + 1);
       setTimeout(() => {
@@ -58,6 +59,10 @@ const ImageAnimation: React.FC = () => {
       }, 2000);
     }
   };
+
+  useImperativeHandle(ref, () => ({
+    handleImageClick,
+  }));
 
   const handleAIImageClick = () => {
     if (gameState === 'guessing') {
@@ -201,6 +206,6 @@ const ImageAnimation: React.FC = () => {
         )}
       </div>
   );
-};
+});
 
 export default ImageAnimation;

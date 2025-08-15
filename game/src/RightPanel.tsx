@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import ImageAnimation from './ImageAnimation';
+import ImageAnimation, { ImageAnimationRef } from './ImageAnimation';
 
-export const AnswerComponentRef = React.createRef<{ startAnim: () => void }>();
+
+export const imageAnimationRef = React.createRef<ImageAnimationRef>();
 
 const RightPanel: React.FC = () => {
   return (
     <div className="panel right-panel">
-        <ImageAnimation />
+  <ImageAnimation ref={imageAnimationRef} />
     </div>
   );
 };

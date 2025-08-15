@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import './LeftPanel.css';
-import { AnswerComponentRef } from './RightPanel';
+import { imageAnimationRef } from './RightPanel';
 
 const gameLogic = (label: string) => {
-  if (AnswerComponentRef.current) {
-    AnswerComponentRef.current.startAnim();
+  if (imageAnimationRef.current) {
+    imageAnimationRef.current.handleImageClick(label);
   }
 };
 
