@@ -126,10 +126,9 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
           <div className="animation-container">
             <div className="animation-header">
               <h2>🎉 You Got It Right!</h2>
-              <p>Watch the AI Chinese Whisper transformation!</p>
-              <button className="reset-button" onClick={resetGame}>
+              {/* <button className="reset-button" onClick={resetGame}>
                 Play Again
-              </button>
+              </button> */}
             </div>
             
             <div className="animation-display">
@@ -157,15 +156,14 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
             {isAnimating && (
               <div className="animation-status">
                 <div className="spinner"></div>
-                <span>Transforming...</span>
+                <span>Reverse Engineering...</span>
               </div>
             )}
 
             {!isAnimating && currentAnimationIndex === animationImages.length - 1 && (
               <div className="animation-complete">
-                <h3>🎊 Transformation Complete!</h3>
+                <h4>🎊 Reverse Engineering Complete!</h4>
                 <p>You successfully identified the original image!</p>
-                <p>Watch how the same prompt evolved through 10 AI iterations</p>
               </div>
             )}
           </div>

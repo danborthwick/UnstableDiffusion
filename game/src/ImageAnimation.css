@@ -1,5 +1,10 @@
 /* ImageAnimation Component Styles - Light Theme */
 
+.animation-prompt {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+
 .fullscreen-layout {
   display: flex;
   width: 100vw;
