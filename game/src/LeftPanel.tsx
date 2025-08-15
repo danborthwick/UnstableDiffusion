@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
-import { AnswerComponentRef } from './RightPanel';
 import './App.css';
 import './LeftPanel.css';
+import { AnswerComponentRef } from './RightPanel';
 
 const gameLogic = (label: string) => {
   if (AnswerComponentRef.current) {
@@ -12,14 +12,20 @@ const gameLogic = (label: string) => {
 
 const LeftPanel: React.FC = () => {
   const [timer, setTimer] = useState(20);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    if (timer === 0) return;
+    if (!started || timer === 0) return;
     const interval = setInterval(() => {
       setTimer(t => t > 0 ? t - 1 : 0);
     }, 1000);
     return () => clearInterval(interval);
-  }, [timer]);
+  }, [started, timer]);
+
+  const handleStart = () => {
+    setStarted(true);
+    setTimer(20);
+  };
 
   return (
     <div className="panel left-panel">
@@ -43,7 +49,11 @@ const LeftPanel: React.FC = () => {
           </div>
         </div>
         <div className="countdown-timer">
-          {timer > 0 ? `${timer}s` : '😰'}
+          {!started ? (
+            <button className="start-button" onClick={handleStart}>Start</button>
+          ) : (
+            timer > 0 ? `${timer}s` : '😰'
+          )}
         </div>
       </div>
     </div>
