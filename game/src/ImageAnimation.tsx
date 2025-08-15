@@ -24,8 +24,22 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
     '/data/intermediate1-4.webp',
     '/data/intermediate1-3.webp',
     '/data/intermediate1-2.webp',
-        '/data/intermediate1-1.webp',
-        '/data/option2.webp'
+    '/data/intermediate1-1.webp',
+    '/data/option2.webp'
+  ];
+
+  // Prompts for each intermediate image (index 0-9)
+  const animationPrompts = [
+    "A serene mountain lake at sunset, reflecting vibrant colors, --ar 16:9 --v 5 --stylize 1000",
+    "A serene landscape at sunset with mountains, soft clouds, vibrant colors --ar 16:9 --v 5 --stylize 1000",
+    "A breathtaking view at sunset, mountains in the background, vibrant colors, --ar 16:9 --v 5 --stylize 1000",
+    "A breathtaking view over serene mountains, vibrant colors, --ar 16:9, ultra-detailed, 8k",
+    "A breathtaking landscape, mountains in the background, vibrant colors, --ar 16:9 --v 5 --stylize 1000",
+    "A vibrant sunset over a serene lake, mountains in the background, --ar 16:9, --v 5, --stylize 1000",
+    "A surreal sunset over a tranquil lake, vibrant colors, perfect symmetry, --ar 16:9, --v 6, 8k",
+    "A serene sunset over a tranquil lake, vibrant colors, perfect symmetry, --ar 16:9 --v 5 --stylize 1000",
+    "A stunning sunset over a tranquil lake, vibrant colors, --ar 16:9, photorealistic, high quality",
+    "A serene sunset over a mountain range, warm colors, dramatic lighting, --ar 16:9, --v 5, --quality 2",
 
   ];
 
@@ -52,7 +66,7 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
         setIsAnimating(true);
         setShowAnimation(true);
         setCurrentAnimationIndex(0);
-      }, 1500);
+      }, 3000);
     } else {
       setGameState('wrong');
       setWrongGuessCount(prev => prev + 1);
@@ -72,7 +86,7 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
       setWrongGuessCount(prev => prev + 1);
       setTimeout(() => {
         setGameState('guessing');
-      }, 2000);
+      }, 4000);
     }
   };
 
@@ -87,7 +101,7 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
         }
         return prev + 1;
       });
-    }, 800); // Change image every 800ms
+    }, 3000); // Change image every 800ms
 
     return () => clearInterval(interval);
   }, [isAnimating, animationImages.length]);
@@ -119,6 +133,9 @@ const ImageAnimation = forwardRef<ImageAnimationRef>((props, ref) => {
             </div>
             
             <div className="animation-display">
+              <div className="animation-prompt">
+                {animationPrompts[currentAnimationIndex]}
+              </div>
               <img
                 src={animationImages[currentAnimationIndex]}
                 alt={`AI Generation ${currentAnimationIndex + 1}`}
