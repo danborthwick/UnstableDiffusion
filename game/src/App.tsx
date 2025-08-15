@@ -1,23 +1,29 @@
 import './App.css';
-import logo from './logo.svg';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <header className="p-6 bg-white rounded-lg shadow-md">
-        <img src={logo} className="h-24 w-24 animate-spin" alt="logo" />
-        <p className="text-gray-700 my-4">
-          Edit <code className="bg-gray-200 p-1 rounded">src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="text-blue-500 hover:text-blue-700 transition-colors"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // Container with zero margin/padding to ensure full viewport usage
+    <div className="fixed inset-0 overflow-hidden">
+      {/* Horizontal flex container to create side-by-side layout */}
+      <div className="flex flex-row w-full h-full">
+        
+        {/* Left panel with purple background */}
+        <div className="w-1/2 h-full bg-purple-500 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-3xl font-bold mb-4">Left Panel</h1>
+            <p className="text-xl">Full height with purple background</p>
+          </div>
+        </div>
+        
+        {/* Right panel with teal background */}
+        <div className="w-1/2 h-full bg-teal-500 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-3xl font-bold mb-4">Right Panel</h1>
+            <p className="text-xl">Full height with teal background</p>
+          </div>
+        </div>
+        
+      </div>
     </div>
   );
 }
